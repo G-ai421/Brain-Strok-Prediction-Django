@@ -1,0 +1,104 @@
+{% comment %} <!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Brain Stroke Predictor</title>
+		<link rel="shortcut icon" href="{% static 'diabetes-favicon.ico' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+		<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+	</head>
+
+    <body>
+
+        <!-- Website Title -->
+		<div class="container">
+            <h2 class='container-heading'><span class="heading_font">Brain Stroke Predictor</span></h2>
+            <div class='description'>
+    			<p>A Machine Learning Web Application that predicits chances of having Healthi Heart or Defective Heart.</p>
+    		</div>
+    	</div>
+
+		<!-- Result -->
+		<div class="results">
+			{% if prediction==1 %}
+				<h1>Prediction: <span class='danger'>Oops! You have Chances of "Defective Heart".</span></h1>
+				
+			{% elif prediction==0 %}
+				<h1>Prediction: <span class='safe'>Great! "Healthi Heart".</span></h1>
+				
+			{% endif %}
+		</div>
+
+		<!-- Footer -->
+       <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/asthasharma98/Heart-Disease-Prediction-Deployment"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/astha-sharma-47266b11b/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+           <p class='footer-description'>Made by ROHIT GAUTAM.</p>
+       </div>
+
+	</body>
+</html> {% endcomment %}
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        {% load static %} <!-- Load static files -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Brain Stroke Predictor</title>
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{% static 'diabetes-favicon.ico' %}">
+        
+        <!-- CSS Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Website Title -->
+        <div class="container">
+            <h2 class='container-heading'>
+                <span class="heading_font">Brain Stroke Predictor</span>
+            </h2>
+            <div class='description'>
+                <p>A Machine Learning Web Application that predicts chances of having a Brain Stroke or No Brain Stroke.</p>
+            </div>
+        </div>
+
+        <!-- Result -->
+        <div class="results">
+            {% if prediction == 1 %}
+                <h1>Prediction: <span class='danger'>Oops! You have Chances of "Brain Stroke".</span></h1>
+            {% elif prediction == 0 %}
+                <h1>Prediction: <span class='safe'>Great! "No Brain Stroke".</span></h1>
+            {% endif %}
+        </div>
+
+        <!-- Footer -->
+        <div class='footer'>
+            <div class="contact">
+                <a target="_blank" href="https://github.com/your-github-username/project-repository"><i class="fab fa-github fa-lg contact-icon"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/in/your-linkedin-profile/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+            </div>
+            <p class='footer-description'>Made by ROHIT GAUTAM.</p>
+        </div>
+    </body>
+</html>

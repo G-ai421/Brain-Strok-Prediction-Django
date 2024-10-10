@@ -1,0 +1,242 @@
+{% comment %} <!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Stroke Prediction</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+  <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Website Title -->
+
+  <div class="container">
+    <h2 class='container-heading'><span class="heading_font">Brain Stroke Prediction</span></h2>
+    <div class='description'>
+      <p>A Machine Learning Web Application that predicits chances of having Healthi Heart or Defective Heart.</p><br>
+        <p>(Note:This model is 94.25% accurate)</p>
+    </div>
+  </div>
+
+  <!-- Text Area -->
+  <div class="ml-container">
+    <form action="{{ url_for('predict')}}" method="POST"> 
+
+      
+      <label for="gender">Aender</label>
+      <select id="gender" name="gender">
+        <option selected>----select option----</option>
+        <option value="1">Male</option>
+        <option value="0">Female</option>
+      </select><br>
+
+        <label for="age">Age</label>
+        <input type="text" id="age" name="age" placeholder="Your age.."><br>
+
+        <label for="heart_disease">Heart_disease</label>
+        <select id="heart_disease" name="heart_disease">
+          <option selected>----select option----</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select><br>
+
+        
+        <label for="ever_married">Ever_married</label>
+        <select id="ever_married" name="ever_married">
+          <option selected>----select option----</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select><br>
+
+        <label for="work_type">Work_type</label>
+        <select id="work_type" name="work_type">
+          <option selected>----select option----</option>
+          <option value="0">children</option>
+          <option value="1">Govt_job</option>
+          <option value="2">Private</option>
+          <option value="3">Self-employed</option>
+        </select><br>
+
+      
+        <label for="Residence_type">Residence_type</label>
+        <select id="Residence_type" name="Residence_type">
+          <option selected>----select option----</option>
+          <option value="1">Urban</option>
+          <option value="0">Rural</option>
+        </select><br>
+
+        <label for="avg_glucose_level">Avg_glucose_level</label>
+        <input type="text" id="avg_glucose_level" name="avg_glucose_level" placeholder="A number in range [94-200] mmHg"><br>
+
+
+
+        <label for="bmi">Bmi</label>
+        <input type="text" id="bmi" name="bmi" placeholder="A number in range [126-564] mg/dl"><br>
+
+
+        <label for="smoking_status">Smoking_status</label>
+        <select id="smoking_status" name="smoking_status">
+          <option selected>----select option----</option>
+          <option value="0">Formerly Smoked</option>
+          <option value="1">Never Smoked</option>
+          <option value="2">Smokes</option>
+          <option value="3">Unknown</option>
+        </select><br>
+
+
+      <input type="submit" class="my-cta-button" value="Predict">
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class='footer'>
+    <div class="contact">
+      <a target="_blank" href="https://github.com/asthasharma98/Heart-Disease-Prediction-Deployment"><i
+          class="fab fa-github fa-lg contact-icon"></i></a>
+      <a target="_blank" href="https://www.linkedin.com/in/astha-sharma-47266b11b/"><i
+          class="fab fa-linkedin fa-lg contact-icon"></i></a>
+    </div>
+    <p class='footer-description'>Made by ROHIT GAUTAM.</p>
+  </div>
+
+</body>
+
+</html> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    {% load static %} <!-- Load static files -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Stroke Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"> {% endcomment %}
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Website Title -->
+  <div class="container">
+    <h2 class='container-heading'><span class="heading_font">Brain Stroke Prediction</span></h2>
+    <div class='description'>
+      <p>A Machine Learning Web Application that predicts chances of having Brain Stroke or No Brain Stroke.</p><br>
+      <p>(Note: This model is 94.25% accurate)</p>
+    </div>
+  </div>
+
+  <!-- Text Area -->
+  <div class="ml-container">
+    <form action="{% url 'predict' %}" method="POST"> <!-- Use Django URL template tag -->
+      {% csrf_token %} <!-- Add CSRF token for security -->
+
+      <label for="gender">Gender</label> <!-- Corrected spelling -->
+      <select id="gender" name="gender">
+        <option selected>----select option----</option>
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+      </select><br>
+
+      <label for="age">Age</label>
+      <input type="text" id="age" name="age" placeholder="Your age.."><br>
+
+      <label for="hypertension">Hypertension</label> <!-- Corrected spelling -->
+      <select id="hypertension" name="hypertension">
+        <option selected>----select option----</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select><br>
+
+
+      <label for="heart_disease">Heart Disease</label> <!-- Corrected spelling -->
+      <select id="heart_disease" name="heart_disease">
+        <option selected>----select option----</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select><br>
+
+      <label for="ever_married">Ever Married</label> <!-- Corrected spelling -->
+      <select id="ever_married" name="ever_married">
+        <option selected>----select option----</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select><br>
+
+      <label for="work_type">Work Type</label> <!-- Corrected spelling -->
+      <select id="work_type" name="work_type">
+        <option selected>----select option----</option>
+        <option value="0">Private</option>
+        <option value="1">Govt_Job</option>
+        <option value="2">Self-employed</option>
+        <option value="3">children</option>
+      </select><br>
+
+      <label for="residence_type">Residence Type</label> <!-- Corrected spelling -->
+      <select id="residence_type" name="residence_type">
+        <option selected>----select option----</option>
+        <option value="1">Urban</option>
+        <option value="0">Rural</option>
+      </select><br>
+
+      <label for="avg_glucose_level">Avg Glucose Level</label> <!-- Corrected spelling -->
+      <input type="text" id="avg_glucose_level" name="avg_glucose_level" placeholder="A number "><br>
+
+      <label for="bmi">BMI</label> <!-- Corrected spelling -->
+      <input type="text" id="bmi" name="bmi" placeholder="A number "><br>
+
+      <label for="smoking_status">Smoking Status</label> <!-- Corrected spelling -->
+      <select id="smoking_status" name="smoking_status">
+        <option selected>----select option----</option>
+        <option value="0">Formerly Smoked</option>
+        <option value="1">Never Smoked</option>
+        <option value="2">Smokes</option>
+        <option value="3">Unknown</option>
+      </select><br>
+
+      <input type="submit" class="my-cta-button" value="Predict">
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class='footer'>
+    <div class="contact">
+      <a target="_blank" href="https://github.com/rohitgautam786/Brain-Strok-Prediction-Django.git"><i class="fab fa-github fa-lg contact-icon"></i></a>
+      <a target="_blank" href="https://www.linkedin.com/in/rohit-gautam-86002a179/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+    </div>
+    <p class='footer-description'>Made by ROHIT GAUTAM.</p>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
